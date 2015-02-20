@@ -11,7 +11,7 @@
 	<%= f.input :money %>
 	<%= f.button :submit, 'Register' %>
 <% end %>
-<!-- Link to login page if already a member -->
+<%= link_to 'Already a Member?', online_lending_login_path %>
 
 
 <h1>Borrower</h1>
@@ -25,4 +25,4 @@
 	<%= f.input :money %><!-- Change to 'Amount Needed' -->
 	<%= f.button :submit, 'Register' %>
 <% end %>
-<!-- Link to login page if already a member -->
+<%= link_to 'Already a Member?', online_lending_login_path %>

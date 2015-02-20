@@ -1,2 +1,12 @@
-<h1>OnlineLending#login</h1>
-<p>Find me in app/views/online_lending/login.html.erb</p>
+<%= content_for :title do %>
+	<title>Login Page</title>
+<% end %>
+
+<h1>Login</h1>
+<%= simple_form_for(:session, url: session_path) do |f| %>
+	<%= f.input :email %>
+	<%= f.input :password %>
+	<%= f.button :submit, 'Login' %>
+<% end %>
+<%= link_to 'Click here to register', online_lending_register_path %>
+

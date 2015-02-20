@@ -2,11 +2,17 @@
 	<title>Borrower Page</title>
 <% end %>
 
-<p>Name : (#FULL NAME)</p>
-<p>Amount Needed: (#MONEY)</p>
-<p>Amount Raised: (#RAISED)</p>
+<p>Name : <%= @borrower.first_name %> <%= @borrower.last_name %></p>
+<p>Amount Needed: $ <%= @borrower.money %></p>
+<p>Amount Raised: $ 
+	<% if @borrower.raised %>
+		<%= @borrower.raised %>
+	<% else %>
+		0
+	<% end %>
+</p>
 
-<!-- Link to logout -->
+<%= link_to 'Logout', sessions_destroy_path %>
 
 <h2>List of people who lent you money:</h2>
 <table>

@@ -2,10 +2,10 @@
 	<title>Lender Page</title>
 <% end %>
 
-<p>Name : (#FULL NAME)</p>
-<p>Account Ballance: (#MONEY)</p>
+<p>Name : <%= @lender.first_name %> <%= @lender.last_name %></p>
+<p>Account Balance: $ <%= @lender.money %></p>
 
-<!-- Link to logout -->
+<%= link_to 'Logout', sessions_destroy_path %>
 
 <h2>List of people in need of help:</h2>
 <table>
@@ -20,14 +20,24 @@
 		</tr>
 	</thead>
 	<tbody>
+	<% if @borrowers %>
+		<% @borrowers.each do |borrower| %>
 		<tr>
-			<td>Pam Smith</td>
-			<td>Boutique Business</td>
-			<td>I am in need of help for my...</td>
-			<td>$4,000</td>
-			<td>$350</td>
-			<td>(#INPUT MONEY) (#BUTTON LEND)</td>
+			<td><%= borrower.first_name %> <%= borrower.last_name %></td>
+			<td><%= borrower.purpose %></td>
+			<td><%= borrower.description %></td>
+			<td>$ <%= borrower.money %></td>
+			<td>$
+				<% if borrower.raised %>
+					<%= borrower.raised %>
+				<% else %>
+					0
+				<% end %>
+			</td>
+			<td>(#INPUT MONEY) (#BUTTON LEND)</td> 
 		</tr>
+		<% end %>
+	<% end %>
 	</tbody>
 </table>
 

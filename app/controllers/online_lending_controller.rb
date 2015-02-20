@@ -27,10 +27,13 @@ class OnlineLendingController < ApplicationController
   def login
   end
 
-  def borrower
+  def lender
+  	@lender = Lender.find(params[:id])
+  	@borrowers = Borrower.all
   end
 
-  def lender
+  def borrower
+  	@borrower = Borrower.find(params[:id])
   end
 
   private
