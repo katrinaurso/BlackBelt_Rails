@@ -36,7 +36,7 @@
 			</td>
 			<td>
 			<% if @lender.money > 0 %>
-				<form action="<%= lend_money_path borrower.id %>" method="post">
+				<form class="lend" action="<%= lend_money_path borrower.id %>" method="post">
 					<% @money = nil %>
 					<% if borrower.raised.nil? %>
 						<% borrower.raised = 0 %>
@@ -70,7 +70,7 @@
 			<th>Amount Lent</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="borrowers">
 	<% if @lendees %>
 		<% @lendees.each do |lend| %>
 		<tr>
