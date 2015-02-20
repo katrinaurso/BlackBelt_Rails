@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'online_lending/borrower/:id' => 'online_lending#borrower', :as => 'borrower'
 
-  post 'session' => 'session#create'
+  post 'session' => 'sessions#create'
 
   get 'sessions/destroy'
 
