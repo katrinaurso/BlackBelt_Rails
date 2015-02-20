@@ -6,12 +6,12 @@
 <% if @message %>
 	<p><%= @message %></p>
 <% elsif @error %>
-	<p><%= @error %></p>
+	<div class="alert alert-danger"><%= @error %></div>
 <% end %>
 <%= simple_form_for(:session, url: session_path) do |f| %>
 	<%= f.input :email %>
 	<%= f.input :password %>
-	<%= f.button :submit, 'Login' %>
+	<%= f.button :submit, 'Login', class: "btn btn-primary" %>
 <% end %>
 <%= link_to 'Click here to register', online_lending_register_path %>
 

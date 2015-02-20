@@ -2,32 +2,42 @@
 	<title>Registration Page</title>
 <% end %>
 
-<h1>Lender</h1>
-<% if @lender_errors %>
-	<% @lender_errors.each do |error| %>
-		<p><%= error %></p>
-	<% end %>
-<% end %>
-<%= simple_form_for @lender, url: online_lending_lender_path do |f| %>
-	<%= f.input :first_name, required: false, placeholder: "First Name" %>
-	<%= f.input :last_name, required: false, placeholder: "Last Name" %>
-	<%= f.input :email, required: false, placeholder: "Email" %>
-	<%= f.input :password, required: false %>
-	<%= f.input :money, required: false %>
-	<%= f.button :submit, 'Register' %>
-<% end %>
-<%= link_to 'Already a Member?', online_lending_login_path %>
+<div class="row">
+	<div class="col-md-6">
+		<h1>Lender</h1>
+		<% if @lender_errors %>
+			<% @lender_errors.each do |error| %>
+				<div class="alert-danger"><%= error %></div>
+			<% end %>
+		<% end %>
+		<%= simple_form_for @lender, url: online_lending_lender_path do |f| %>
+			<%= f.input :first_name, required: false, placeholder: "First Name" %>
+			<%= f.input :last_name, required: false, placeholder: "Last Name" %>
+			<%= f.input :email, required: false, placeholder: "Email" %>
+			<%= f.input :password, required: false %>
+			<%= f.input :money, required: false %>
+			<%= f.button :submit, 'Register', class: "btn btn-primary" %>
+		<% end %>
+		<%= link_to 'Already a Member?', online_lending_login_path %>
+	</div>
 
-
-<h1>Borrower</h1>
-<%= simple_form_for @borrower, url: online_lending_borrower_path do |f| %>
-	<%= f.input :first_name, required: false %>
-	<%= f.input :last_name, required: false %>
-	<%= f.input :email, required: false %>
-	<%= f.input :password, required: false %>
-	<%= f.input :purpose, required: false, label: 'Need Money For' %>
-	<%= f.input :description, required: false %>
-	<%= f.input :money, required: false, label: 'Amount Needed' %>
-	<%= f.button :submit, 'Register' %>
-<% end %>
-<%= link_to 'Already a Member?', online_lending_login_path %>
+	<div class="col-md-6">
+		<h1>Borrower</h1>
+		<% if @borrower_errors %>
+			<% @borrower_errors.each do |error| %>
+				<div class="alert-danger"><%= error %></div>
+			<% end %>
+		<% end %>
+		<%= simple_form_for @borrower, url: online_lending_borrower_path do |f| %>
+			<%= f.input :first_name, required: false %>
+			<%= f.input :last_name, required: false %>
+			<%= f.input :email, required: false %>
+			<%= f.input :password, required: false %>
+			<%= f.input :purpose, required: false, label: 'Need Money For' %>
+			<%= f.input :description, required: false %>
+			<%= f.input :money, required: false, label: 'Amount Needed' %>
+			<%= f.button :submit, 'Register', class: "btn btn-primary" %>
+		<% end %>
+		<%= link_to 'Already a Member?', online_lending_login_path %>
+	</div>
+</div>

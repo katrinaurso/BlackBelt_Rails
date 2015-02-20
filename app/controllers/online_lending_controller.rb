@@ -3,6 +3,7 @@ class OnlineLendingController < ApplicationController
   	@lender = Lender.new
   	@borrower = Borrower.new
   	@lender_errors = flash[:lender_errors]
+  	@borrower_errors = flash[:borrower_errors]
   end
 
   def create_lender
@@ -67,7 +68,6 @@ class OnlineLendingController < ApplicationController
   		@borrower.update(raised:@borrower.raised + params[:amount].to_i)
   	end
   	@history = History.create(amount:params[:amount].to_i, lender:@lender, borrower:@borrower)
-  	# redirect_to lender_path @lender
   	json_message = {first_name:@borrower.first_name, last_name:@borrower.last_name, purpose:@borrower.purpose, description:@borrower.description, money:@borrower.money, raised:@borrower.raised, amount:@history.amount}
   	render json: json_message
   end
