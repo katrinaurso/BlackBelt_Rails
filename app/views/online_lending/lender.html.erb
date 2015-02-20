@@ -46,7 +46,7 @@
 						<% @money = @lender.money %>
 					<% end %>
 					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-					<input type="number" name="money" min="1" max="<%= @money %>">
+					<input type="number" name="amount" min="1" max="<%= @money %>">
 					<input type="submit" value="Lend">
 				</form>
 			</td> 

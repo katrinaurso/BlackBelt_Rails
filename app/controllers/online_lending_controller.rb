@@ -37,6 +37,7 @@ class OnlineLendingController < ApplicationController
   	if session[:user_type] == 'lender'
 	  	@lender = Lender.find(params[:id])
 	  	@borrowers = Borrower.all
+	  	@history = History.new
 	else 
 		redirect_to online_lending_login_path
 	end
@@ -55,14 +56,14 @@ class OnlineLendingController < ApplicationController
   		redirect_to online_lending_login_path
   	end
   	@lender = Lender.find(session[:user_id])
+  	@lender.update(money:@lender.money-params[:amount].to_i)
   	@borrower = Borrower.find(params[:id])
-  	if @lender.update(money:@lender.money-params[:money].to_i)
-  		if @borrower.raised.nil?
-  			@borrower.update(raised:params[:money].to_i)
-  		else
-  			@borrower.update(raised:@borrower.raised + params[:money].to_i)
-  		end
+  	if @borrower.raised.nil?
+  		@borrower.update(raised:params[:amount].to_i)
+  	else
+  		@borrower.update(raised:@borrower.raised + params[:amount].to_i)
   	end
+  	@history = History.create(amount:params[:amount].to_i, lender:@lender, borrower:@borrower)
   	redirect_to lender_path @lender
   end
 

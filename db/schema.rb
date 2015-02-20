@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220182917) do
+ActiveRecord::Schema.define(version: 20150220201424) do
 
   create_table "borrowers", force: true do |t|
     t.string   "first_name"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20150220182917) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "histories", force: true do |t|
+    t.integer  "amount"
+    t.integer  "lender_id"
+    t.integer  "borrower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "histories", ["borrower_id"], name: "index_histories_on_borrower_id"
+  add_index "histories", ["lender_id"], name: "index_histories_on_lender_id"
 
   create_table "lenders", force: true do |t|
     t.string   "first_name"

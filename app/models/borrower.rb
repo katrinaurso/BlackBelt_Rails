@@ -1,4 +1,5 @@
 class Borrower < ActiveRecord::Base
+	has_many :histories
 
   def has_password?(submitted_password)
     self.password == submitted_password
