@@ -4,15 +4,17 @@ Rails.application.routes.draw do
 
   get 'online_lending/login'
 
+  post 'session' => 'sessions#create'
+
   post 'online_lending/lender' => 'online_lending#create_lender'
 
   get 'online_lending/lender/:id' => 'online_lending#lender', :as => 'lender'
 
+  post 'online_lending/lend_money/:id' => 'online_lending#lend_money', :as => 'lend_money'
+
   post 'online_lending/borrower' => 'online_lending#create_borrower'
 
   get 'online_lending/borrower/:id' => 'online_lending#borrower', :as => 'borrower'
-
-  post 'session' => 'sessions#create'
 
   get 'sessions/destroy'
 

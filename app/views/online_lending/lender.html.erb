@@ -34,7 +34,22 @@
 					0
 				<% end %>
 			</td>
-			<td>(#INPUT MONEY) (#BUTTON LEND)</td> 
+			<td>
+				<form action="<%= lend_money_path borrower.id %>" method="post">
+					<% @money = nil %>
+					<% if borrower.raised.nil? %>
+						<% borrower.raised = 0 %>
+					<% end %>
+					<% if @lender.money > borrower.money - borrower.raised %>
+						<% @money = borrower.money - borrower.raised %>
+					<% else %>
+						<% @money = @lender.money %>
+					<% end %>
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input type="number" name="money" min="1" max="<%= @money %>">
+					<input type="submit" value="Lend">
+				</form>
+			</td> 
 		</tr>
 		<% end %>
 	<% end %>

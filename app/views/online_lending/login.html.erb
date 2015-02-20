@@ -3,6 +3,11 @@
 <% end %>
 
 <h1>Login</h1>
+<% if @message %>
+	<p><%= @message %></p>
+<% elsif @error %>
+	<p><%= @error %></p>
+<% end %>
 <%= simple_form_for(:session, url: session_path) do |f| %>
 	<%= f.input :email %>
 	<%= f.input :password %>
