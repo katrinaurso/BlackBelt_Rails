@@ -24,10 +24,14 @@
 		</tr>
 	</thead>
 	<tbody>
+	<% if @lenders %>
+		<% @lenders.each do |lender| %>
 		<tr>
-			<td>John Oliver</td>
-			<td>john@oliver.com</td>
-			<td>$25</td>
+			<td><%= lender.first_name %> <%= lender.last_name %></td>
+			<td><%= lender.email %></td>
+			<td>$ <%= lender.amount %></td>
 		</tr>
+		<% end %>
+	<% end %>
 	</tbody>
 </table>

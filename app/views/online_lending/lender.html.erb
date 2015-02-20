@@ -35,6 +35,7 @@
 				<% end %>
 			</td>
 			<td>
+			<% if @lender.money > 0 %>
 				<form action="<%= lend_money_path borrower.id %>" method="post">
 					<% @money = nil %>
 					<% if borrower.raised.nil? %>
@@ -49,6 +50,7 @@
 					<input type="number" name="amount" min="1" max="<%= @money %>">
 					<input type="submit" value="Lend">
 				</form>
+			<% end %>
 			</td> 
 		</tr>
 		<% end %>

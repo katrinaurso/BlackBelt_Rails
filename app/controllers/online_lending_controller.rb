@@ -47,6 +47,7 @@ class OnlineLendingController < ApplicationController
   def borrower
   	if session[:user_type] == 'borrower'
   		@borrower = Borrower.find(params[:id])
+  		@lenders = History.joins(:lender).select('*').where(borrower:Borrower.find(params[:id]))
   	else 
   		redirect_to online_lending_login_path
   	end
