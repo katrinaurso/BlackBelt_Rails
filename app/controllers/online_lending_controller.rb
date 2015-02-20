@@ -38,6 +38,7 @@ class OnlineLendingController < ApplicationController
 	  	@lender = Lender.find(params[:id])
 	  	@borrowers = Borrower.all
 	  	@history = History.new
+	  	@lendees = History.joins(:borrower).select('*').where(lender:Lender.find(params[:id]))
 	else 
 		redirect_to online_lending_login_path
 	end

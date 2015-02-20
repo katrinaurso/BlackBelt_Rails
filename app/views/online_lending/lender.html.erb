@@ -69,13 +69,17 @@
 		</tr>
 	</thead>
 	<tbody>
+	<% if @lendees %>
+		<% @lendees.each do |lend| %>
 		<tr>
-			<td>Pam Smith</td>
-			<td>Boutique Business</td>
-			<td>I am in need of help for my...</td>
-			<td>$4,000</td>
-			<td>$350</td>
-			<td>$25</td>
+			<td><%= lend.first_name %> <%= lend.last_name %></td>
+			<td><%= lend.purpose %></td>
+			<td><%= lend.description %></td>
+			<td>$ <%= lend.money %></td>
+			<td>$ <%= lend.raised %></td>
+			<td>$ <%= lend.amount %></td>
 		</tr>
+		<% end %>
+	<% end %>
 	</tbody>
 </table>
