@@ -1,2 +1,27 @@
-<h1>OnlineLending#borrower</h1>
-<p>Find me in app/views/online_lending/borrower.html.erb</p>
+<%= content_for :title do %>
+	<title>Borrower Page</title>
+<% end %>
+
+<p>Name : (#FULL NAME)</p>
+<p>Amount Needed: (#MONEY)</p>
+<p>Amount Raised: (#RAISED)</p>
+
+<!-- Link to logout -->
+
+<h2>List of people who lent you money:</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Amount Lent</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>John Oliver</td>
+			<td>john@oliver.com</td>
+			<td>$25</td>
+		</tr>
+	</tbody>
+</table>
