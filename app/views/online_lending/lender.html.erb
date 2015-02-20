@@ -1,2 +1,56 @@
-<h1>OnlineLending#lender</h1>
-<p>Find me in app/views/online_lending/lender.html.erb</p>
+<%= content_for :title do %>
+	<title>Lender Page</title>
+<% end %>
+
+<p>Name : (#FULL NAME)</p>
+<p>Account Ballance: (#MONEY)</p>
+
+<!-- Link to logout -->
+
+<h2>List of people in need of help:</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Need Money For</th>
+			<th>Reason for Loan</th>
+			<th>Amount Needed</th>
+			<th>Amount Raised</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Pam Smith</td>
+			<td>Boutique Business</td>
+			<td>I am in need of help for my...</td>
+			<td>$4,000</td>
+			<td>$350</td>
+			<td>(#INPUT MONEY) (#BUTTON LEND)</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>List of people you have lent money to:</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Need Money For</th>
+			<th>Reason for Loan</th>
+			<th>Amount Needed</th>
+			<th>Amount Raised</th>
+			<th>Amount Lent</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Pam Smith</td>
+			<td>Boutique Business</td>
+			<td>I am in need of help for my...</td>
+			<td>$4,000</td>
+			<td>$350</td>
+			<td>$25</td>
+		</tr>
+	</tbody>
+</table>

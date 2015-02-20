@@ -1,3 +1,7 @@
+<%= content_for :title do %>
+	<title>Registration Page</title>
+<% end %>
+
 <h1>Lender</h1>
 <%= simple_form_for @lender, url: online_lending_lender_path do |f| %>
 	<%= f.input :first_name %>
