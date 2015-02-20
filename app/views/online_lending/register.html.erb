@@ -1,0 +1,15 @@
+<h1>Lender</h1>
+<%= simple_form_for @lender, url: online_lending_lender_path do |f| %>
+	<%= f.input :first_name %>
+	<%= f.input :last_name %>
+	<%= f.input :email %>
+	<%= f.input :password %>
+	<%= f.input :money %>
+	<%= f.button :submit, 'Register' %>
+<% end %>
+<!-- Link to login page if already a member -->
+
+
+<h1>Borrower</h1>
+<!-- Form for borrower login -->
+<!-- Link to login page if already a member -->
