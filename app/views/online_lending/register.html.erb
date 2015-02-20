@@ -15,5 +15,14 @@
 
 
 <h1>Borrower</h1>
-<!-- Form for borrower login -->
+<%= simple_form_for @borrower, url: online_lending_borrower_path do |f| %>
+	<%= f.input :first_name %>
+	<%= f.input :last_name %>
+	<%= f.input :email %>
+	<%= f.input :password %>
+	<%= f.input :purpose %><!-- Change to 'Need Money For' -->
+	<%= f.input :description %>
+	<%= f.input :money %><!-- Change to 'Amount Needed' -->
+	<%= f.button :submit, 'Register' %>
+<% end %>
 <!-- Link to login page if already a member -->

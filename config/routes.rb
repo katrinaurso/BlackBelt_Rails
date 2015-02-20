@@ -4,11 +4,14 @@ Rails.application.routes.draw do
 
   get 'online_lending/login'
 
-  get 'online_lending/borrower'
+  post 'online_lending/lender' => 'online_lending#create_lender'
 
   get 'online_lending/lender/:id' => 'online_lending#lender', :as => 'lender'
 
-  post 'online_lending/lender' => 'online_lending#create_lender'
+  post 'online_lending/borrower' => 'online_lending#create_borrower'
+
+  get 'online_lending/borrower/:id' => 'online_lending#borrower', :as => 'borrower'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
